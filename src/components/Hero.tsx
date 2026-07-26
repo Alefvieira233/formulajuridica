@@ -26,13 +26,33 @@ export default function Hero() {
       />
       {/* rastros de luz do carro que acabou de passar */}
       <LightTrails className="pointer-events-none absolute inset-0 h-full w-full" />
-      {/* fagulhas (estética do deck) */}
+
+      {/* Higor no palco, fundido ao fundo (foto ancorada à direita no desktop) */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[56%]">
+        <motion.img
+          src="/images/higor-hero.jpg"
+          alt=""
+          className="h-full w-full object-cover object-[68%_18%] opacity-[0.16] saturate-[1.05] lg:opacity-80"
+          initial={reduced ? undefined : { scale: 1.06 }}
+          animate={reduced ? undefined : { scale: 1 }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        />
+        {/* máscaras: funde a foto no preto por todos os lados */}
+        <div className="absolute inset-0 bg-gradient-to-r from-track via-track/55 to-transparent lg:via-track/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-track via-transparent to-track/80" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-track to-transparent" />
+        {/* leve véu vermelho para casar com a identidade */}
+        <div className="absolute inset-0 bg-race/10 mix-blend-multiply" />
+      </div>
+
+      {/* fagulhas (estética do deck) — na frente da foto */}
       <SparkField className="pointer-events-none absolute inset-0 h-full w-full" />
+
       {/* faixa quadriculada no rodapé do hero */}
       <div aria-hidden className="checkered pointer-events-none absolute bottom-0 left-0 h-6 w-full opacity-40" />
 
       <div className="container-content relative">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl text-center lg:mx-0 lg:max-w-2xl lg:text-left">
           <motion.span
             {...enter(0)}
             className="inline-flex items-center gap-2 rounded-full border border-race/40 bg-carbon/80 px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-zinc-200"
@@ -43,7 +63,7 @@ export default function Hero() {
 
           <motion.h1
             {...enter(0.08)}
-            className="display-title mt-7 text-5xl sm:text-6xl lg:text-[5.2rem]"
+            className="display-title mt-7 text-5xl sm:text-6xl lg:text-[4.6rem]"
           >
             Seu escritório na
             <br />
@@ -55,23 +75,26 @@ export default function Hero() {
 
           <motion.p
             {...enter(0.16)}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300 lg:mx-0 lg:max-w-xl"
           >
             {HERO.subtitle}
           </motion.p>
 
-          <motion.div {...enter(0.24)} className="mt-10 flex flex-col items-center gap-3">
+          <motion.div
+            {...enter(0.24)}
+            className="mt-10 flex flex-col items-center gap-3 lg:items-start"
+          >
             <a href={FORM_ANCHOR} className="btn-race w-full sm:w-auto">
               {HERO.cta}
               <ArrowRight className="h-5 w-5" aria-hidden />
             </a>
-            <span className="text-sm text-zinc-500">{HERO.ctaHint}</span>
+            <span className="text-sm text-zinc-400">{HERO.ctaHint}</span>
           </motion.div>
         </div>
 
         <motion.dl
           {...enter(0.34)}
-          className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-0"
         >
           {HERO.stats.map((stat) => (
             <div key={stat.label} className="plate bg-white/10 p-px transition hover:bg-race/60">
