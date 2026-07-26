@@ -43,7 +43,30 @@
   }
 
   .btn-race {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-race px-8 py-4 font-display text-lg uppercase tracking-wide text-white shadow-race transition duration-200 hover:-translate-y-0.5 hover:bg-race-600 hover:shadow-race focus:outline-none focus-visible:ring-2 focus-visible:ring-race focus-visible:ring-offset-2 focus-visible:ring-offset-track;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-race px-8 py-4 font-display text-lg uppercase tracking-wide text-white shadow-race transition duration-200 hover:-translate-y-0.5 hover:bg-race-600 hover:shadow-race focus:outline-none focus-visible:ring-2 focus-visible:ring-race focus-visible:ring-offset-2 focus-visible:ring-offset-track;
+  }
+
+  /* Brilho que varre o botão no hover (micro-interação) */
+  .btn-race::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -160%;
+    height: 100%;
+    width: 55%;
+    transform: skewX(-22deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-race:hover::after {
+    left: 165%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-race::after {
+      display: none;
+    }
   }
 
   .btn-ghost {

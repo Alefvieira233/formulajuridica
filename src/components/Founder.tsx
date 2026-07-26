@@ -28,7 +28,7 @@ export default function Founder() {
           <Reveal from="right">
             <span className="kicker">/// {FOUNDER.kicker}</span>
             <h2 className="display-title text-4xl sm:text-5xl">
-              A estratégia tem <span className="text-race">rosto</span> e tem histórico
+              Você é o <span className="text-race">piloto</span> da sua empresa
             </h2>
             {FOUNDER.bio.map((paragrafo) => (
               <p key={paragrafo} className="mt-5 text-lg leading-relaxed text-zinc-400">

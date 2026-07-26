@@ -152,7 +152,35 @@ export default function LeadForm() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1} className="mx-auto mt-12 max-w-2xl">
+        <div className="mx-auto mt-12 grid max-w-5xl items-start gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+          {/* Coluna de urgência + passos (padrão validado na referência) */}
+          <div className="space-y-6 lg:sticky lg:top-24">
+            <Reveal from="left">
+              <div className="rounded-2xl border border-race/40 bg-track p-7">
+                <span className="kicker !mb-2">/// {FORM.aviso.kicker}</span>
+                <p className="display-title text-2xl leading-tight sm:text-3xl">
+                  {FORM.aviso.title}
+                </p>
+              </div>
+            </Reveal>
+            {FORM.passos.map((passo, i) => (
+              <Reveal key={passo.numero} from="left" delay={0.08 + i * 0.08}>
+                <div className="flex gap-5 rounded-2xl border border-white/10 bg-track p-6">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-race font-display text-xl text-white shadow-race-sm">
+                    {passo.numero}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl uppercase tracking-wide text-white">
+                      {passo.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">{passo.text}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.1} from="right">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-track shadow-2xl">
             {/* barra de progresso estilo pit wall */}
             <div className="border-b border-white/5 px-6 py-5 sm:px-8">
@@ -326,7 +354,8 @@ export default function LeadForm() {
               )}
             </div>
           </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

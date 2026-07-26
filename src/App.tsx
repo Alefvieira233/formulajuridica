@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { captureUtms } from "./lib/utm";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
+import TapeCross from "./components/TapeCross";
 import LeadForm from "./components/LeadForm";
 import Imprensa from "./components/Imprensa";
 import Diferencial from "./components/Diferencial";
@@ -25,7 +25,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
+        <TapeCross />
         <LeadForm />
         <Imprensa />
         <Diferencial />

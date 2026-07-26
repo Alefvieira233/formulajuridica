@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { CTA_FINAL, FORM_ANCHOR } from "@/content";
 import Reveal from "./Reveal";
+import StartLights from "./StartLights";
 
 export default function CtaFinal() {
   return (
@@ -13,6 +14,7 @@ export default function CtaFinal() {
 
       <div className="container-content relative text-center">
         <Reveal>
+          <StartLights />
           <h2 className="display-title mx-auto max-w-3xl text-5xl sm:text-6xl">
             {CTA_FINAL.title}
           </h2>

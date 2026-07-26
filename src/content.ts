@@ -46,15 +46,24 @@ export const HERO = {
   ],
 };
 
-export const MARQUEE_ITEMS = [
-  "Posicionamento digital",
-  "Tráfego pago",
-  "Direcionamento comercial",
-  "+500 contratos em 2025",
-  "Método validado em +100 escritórios",
-  "Migalhas",
-  "Exame",
-];
+// Fitas cruzadas (padrão validado na referência): números na frente, método atrás
+export const TAPES = {
+  frente: [
+    "+500 contratos fechados em 2025",
+    "+100 escritórios acelerados",
+    "Visto no Migalhas",
+    "Visto na Exame",
+    "Método validado no Brasil inteiro",
+  ],
+  fundo: [
+    "Estrutura",
+    "Conteúdo",
+    "Tráfego",
+    "Posicionamento digital",
+    "Direcionamento comercial",
+    "Previsibilidade",
+  ],
+};
 
 // ————— Imprensa —————
 
@@ -123,6 +132,25 @@ export const FORM = {
       "Se o diagnóstico fizer sentido, você está pronto(a) para investir no crescimento do escritório?",
   },
   submit: "Solicitar meu diagnóstico",
+  aviso: {
+    kicker: "Aviso",
+    title: "Não saia agora. Faltam poucos segundos para seu escritório mudar.",
+  },
+  passos: [
+    {
+      numero: "1",
+      title: "Complete o formulário",
+      text: "Leva menos de 1 minuto. Garantimos a segurança total dos seus dados — serão usados apenas para esse contato.",
+    },
+    {
+      numero: "2",
+      title: "Receba uma ligação personalizada",
+      text:
+        "Em até " +
+        TEMPO_RESPOSTA +
+        " (horário comercial), um dos nossos especialistas liga para agendar a reunião mais importante do seu escritório.",
+    },
+  ],
   sucesso: {
     title: "Recebido! Você está no grid.",
     text:
@@ -131,7 +159,7 @@ export const FORM = {
       " (horário comercial). Se preferir adiantar, chame no WhatsApp:",
     ctaWhats: "Falar agora no WhatsApp",
   },
-  lgpd: "Seus dados estão seguros e serão usados apenas para esse contato. Nada de spam.",
+  lgpd: "Ao enviar, você concorda em receber contato do nosso time por telefone, e-mail ou WhatsApp. Seus dados não serão compartilhados com terceiros.",
 };
 
 // ————— Diferencial (posicionamento da empresa) —————
@@ -262,12 +290,13 @@ export const PARA_QUEM = {
 
 export const FOUNDER = {
   kicker: "Quem está no comando",
-  nome: "Higor", // [AJUSTAR] nome completo
-  cargo: "Founder · Fórmula Jurídica | BKS 360", // [AJUSTAR]
+  nome: "Higor Vieira",
+  cargo: "CEO & Founder · Fórmula Jurídica | BKS 360",
+  frase: "Você é o piloto da sua empresa.",
   bio: [
-    "À frente da BKS 360, Higor lidera a operação que já colocou mais de 100 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025.",
-    "É ele quem apresenta o diagnóstico e desenha, junto com o time, o plano de aceleração de cada escritório que entra para o grid da Fórmula Jurídica.",
-  ], // [AJUSTAR] bio real
+    "À frente da BKS 360, Higor Vieira lidera a operação que já colocou mais de 100 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025 — e sobe em palcos pelo país para falar de posicionamento e vendas.",
+    "Na Fórmula Jurídica, você pilota. O nosso time é a engenharia e o pit stop: estrutura, estratégia e velocidade para o seu escritório cruzar a linha de chegada na frente.",
+  ], // [AJUSTAR] revisar bio com o Higor
   // Coloque a foto real em public/images/ (ex.: higor.jpg) e ajuste o caminho aqui
   foto: "/images/higor.svg",
 };
