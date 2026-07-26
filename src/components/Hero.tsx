@@ -71,18 +71,17 @@ export default function Hero() {
           className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
         >
           {HERO.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-white/5 bg-carbon/80 px-6 py-6 transition hover:border-race/50"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-race to-transparent opacity-60"
-              />
-              <dd className="font-display text-4xl text-white">
-                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-              </dd>
-              <dt className="order-2 mt-1.5 text-sm text-zinc-500">{stat.label}</dt>
+            <div key={stat.label} className="plate bg-white/10 p-px transition hover:bg-race/60">
+              <div className="plate carbon-texture relative flex h-full flex-col bg-carbon px-6 py-6">
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-race to-transparent opacity-60"
+                />
+                <dd className="font-display text-4xl text-white">
+                  <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                </dd>
+                <dt className="order-2 mt-1.5 text-sm text-zinc-500">{stat.label}</dt>
+              </div>
             </div>
           ))}
         </motion.dl>

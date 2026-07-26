@@ -115,4 +115,22 @@
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
     color: transparent;
   }
+
+  /* Placa de corrida: cantos chanfrados */
+  .plate {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 16px) 0,
+      100% 16px,
+      100% 100%,
+      16px 100%,
+      0 calc(100% - 16px)
+    );
+  }
+
+  /* Textura sutil de fibra de carbono */
+  .carbon-texture {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 7px 7px;
+  }
 }

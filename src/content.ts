@@ -214,6 +214,37 @@ export const METODO = {
   ],
 };
 
+// ————— Pit lane (a máquina em movimento) —————
+
+export const PITLANE = {
+  kicker: "A máquina em movimento",
+  title: "Do clique no anúncio ao contrato assinado",
+  subtitle:
+    "É assim que a demanda percorre a máquina que montamos para o seu escritório — sem depender de indicação e sem lead esquecido no WhatsApp.",
+  etapas: [
+    {
+      title: "Anúncio",
+      text: "Criativos e campanhas colocam seu escritório na frente do cliente certo, todos os dias.",
+    },
+    {
+      title: "Lead qualificado",
+      text: "A página filtra e entrega ao comercial os dados que importam: área, porte e momento.",
+    },
+    {
+      title: "SDR em ação",
+      text: "Ligação em minutos, com inteligência comercial desde o primeiro contato.",
+    },
+    {
+      title: "Fechamento",
+      text: "O closer conduz a proposta — e o contrato é assinado.",
+    },
+    {
+      title: "Operação",
+      text: "Onboarding, CRM e indicadores. Tudo documentado, tudo replicável.",
+    },
+  ],
+};
+
 // ————— Ecossistema (máquina de vendas do deck) —————
 
 export const ECOSSISTEMA = {

@@ -1,13 +1,21 @@
 import { useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import { FORM_ANCHOR, NAV_LINKS } from "@/content";
 import Logo from "./Logo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-track/85 backdrop-blur-md">
+      {/* progresso da corrida (posição do scroll) */}
+      <motion.span
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-race"
+        style={{ scaleX: scrollYProgress }}
+      />
       <nav className="container-content flex h-[4.5rem] items-center justify-between">
         <Logo />
 

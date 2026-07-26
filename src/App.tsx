@@ -7,7 +7,9 @@ import LeadForm from "./components/LeadForm";
 import Imprensa from "./components/Imprensa";
 import Diferencial from "./components/Diferencial";
 import Metodo from "./components/Metodo";
+import PitLane from "./components/PitLane";
 import Ecossistema from "./components/Ecossistema";
+import StickyCta from "./components/StickyCta";
 import Resultados from "./components/Resultados";
 import ParaQuem from "./components/ParaQuem";
 import Founder from "./components/Founder";
@@ -30,6 +32,7 @@ export default function App() {
         <Imprensa />
         <Diferencial />
         <Metodo />
+        <PitLane />
         <Ecossistema />
         <Resultados />
         <ParaQuem />
@@ -38,6 +41,7 @@ export default function App() {
         <CtaFinal />
       </main>
       <Footer />
+      <StickyCta />
     </>
   );
 }
