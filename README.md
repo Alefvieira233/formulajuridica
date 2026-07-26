@@ -35,8 +35,8 @@ Tudo fica em **`src/content.ts`** (copy) e `index.html` (Pixel):
 3. `TEMPO_RESPOSTA` — promessa real de velocidade de atendimento.
 4. **Meta Pixel** — cole o snippet oficial no comentário marcado em `index.html`.
    O formulário dispara `fbq('track', 'Lead')` automaticamente no envio.
-5. **Foto do Higor** — salve em `public/images/` (ex.: `higor.jpg`) e ajuste
-   `FOUNDER.foto`. Complete nome/cargo/bio em `FOUNDER`.
+5. **Foto do Higor** — já incluída (`public/images/higor.jpg`). Revisar a bio
+   em `FOUNDER` com o Higor.
 6. `RESULTADOS.depoimentos` — substituir os dois depoimentos `[NOME]/[NICHO]`
    por depoimentos reais (o case Jhônata Correa AP→ES já é real, veio do deck).
 7. `FOOTER` — CNPJ e link do Instagram reais.

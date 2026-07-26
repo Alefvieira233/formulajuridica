@@ -328,8 +328,7 @@ export const FOUNDER = {
     "À frente da BKS 360, Higor Vieira lidera a operação que já colocou mais de 100 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025 — e sobe em palcos pelo país para falar de posicionamento e vendas.",
     "Na Fórmula Jurídica, você pilota. O nosso time é a engenharia e o pit stop: estrutura, estratégia e velocidade para o seu escritório cruzar a linha de chegada na frente.",
   ], // [AJUSTAR] revisar bio com o Higor
-  // Coloque a foto real em public/images/ (ex.: higor.jpg) e ajuste o caminho aqui
-  foto: "/images/higor.svg",
+  foto: "/images/higor.jpg",
 };
 
 // ————— FAQ —————

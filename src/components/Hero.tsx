@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Flag } from "lucide-react";
 import { FORM_ANCHOR, HERO } from "@/content";
 import Counter from "./Counter";
+import LightTrails from "./LightTrails";
 import SparkField from "./SparkField";
 
 export default function Hero() {
@@ -23,6 +24,8 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute -top-56 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full bg-race/15 blur-3xl"
       />
+      {/* rastros de luz do carro que acabou de passar */}
+      <LightTrails className="pointer-events-none absolute inset-0 h-full w-full" />
       {/* fagulhas (estética do deck) */}
       <SparkField className="pointer-events-none absolute inset-0 h-full w-full" />
       {/* faixa quadriculada no rodapé do hero */}
