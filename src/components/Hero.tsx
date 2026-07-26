@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Flag } from "lucide-react";
 import { FORM_ANCHOR, HERO } from "@/content";
 import Counter from "./Counter";
-import LightTrails from "./LightTrails";
 import SparkField from "./SparkField";
 
 export default function Hero() {
@@ -24,9 +23,6 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute -top-56 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full bg-race/15 blur-3xl"
       />
-      {/* rastros de luz do carro que acabou de passar */}
-      <LightTrails className="pointer-events-none absolute inset-0 h-full w-full" />
-
       {/* Higor no palco, fundido ao fundo (foto ancorada à direita no desktop) */}
       <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[56%]">
         <motion.img
@@ -65,8 +61,8 @@ export default function Hero() {
             {...enter(0.08)}
             className="display-title mt-7 text-5xl sm:text-6xl lg:text-[4.6rem]"
           >
-            Seu escritório na
-            <br />
+            Seu escritório na{" "}
+            <br className="hidden lg:block" />
             <span className="text-race drop-shadow-[0_0_25px_rgba(225,6,0,0.45)]">
               pole position
             </span>{" "}

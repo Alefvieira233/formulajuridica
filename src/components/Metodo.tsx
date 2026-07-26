@@ -33,16 +33,16 @@ export default function Metodo() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {METODO.frentes.map((frente, i) => (
-            <Reveal key={frente.numero} delay={i * 0.12}>
+            <Reveal key={frente.title} delay={i * 0.12}>
               <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-carbon p-8 transition hover:border-race/60 hover:shadow-race-sm">
                 <span
                   aria-hidden
-                  className="display-title pointer-events-none absolute -right-3 -top-8 text-[7rem] text-white/5 transition group-hover:text-race/10"
+                  className="display-title pointer-events-none absolute -right-2 -top-10 text-[9rem] text-white/5 transition group-hover:text-race/10"
                 >
-                  {frente.numero}
+                  {frente.title.charAt(0)}
                 </span>
                 <span className="font-display text-sm uppercase tracking-[0.25em] text-race">
-                  Frente {frente.numero}
+                  /// Frente
                 </span>
                 <h3 className="display-title mt-3 text-4xl">{frente.title}</h3>
                 <p className="mt-2 text-zinc-400">{frente.resumo}</p>
@@ -61,7 +61,7 @@ export default function Metodo() {
 
         <Reveal delay={0.2} className="mt-12 text-center">
           <a href={FORM_ANCHOR} className="btn-race">
-            Aplicar o método no meu escritório
+            Receber diagnóstico gratuito
           </a>
         </Reveal>
       </div>

@@ -33,7 +33,7 @@ export const NAV_LINKS = [
 // ————— Hero —————
 
 export const HERO = {
-  badge: "Assessoria de alta performance para escritórios de advocacia",
+  badge: "Alta performance para escritórios e advogados",
   // Título fica no componente (destaque em vermelho no meio da frase)
   subtitle:
     "A Fórmula Jurídica constrói o posicionamento digital e os canais de aquisição comercial do seu escritório — tráfego, conteúdo e estrutura trabalhando juntos para gerar contratos fechados com previsibilidade.",
@@ -310,7 +310,7 @@ export const PARA_QUEM = {
   sim: {
     title: "É para você, se",
     itens: [
-      "Você tem um escritório estruturado ou em crescimento acelerado",
+      "Você tem um escritório estruturado — ou a ambição de construir uma banca referência",
       "Sua entrega jurídica é boa — o gargalo é a captação",
       "Você quer parar de depender só de indicação",
       "Você trata (ou quer tratar) a advocacia como negócio",

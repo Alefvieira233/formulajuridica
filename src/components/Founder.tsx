@@ -36,7 +36,7 @@ export default function Founder() {
               </p>
             ))}
             <a href={FORM_ANCHOR} className="btn-race mt-8">
-              Quero esse time na minha operação
+              Receber diagnóstico gratuito
             </a>
           </Reveal>
         </div>
