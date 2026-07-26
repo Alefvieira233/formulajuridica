@@ -28,15 +28,19 @@ export default function Hero() {
         <motion.img
           src="/images/higor-hero.jpg"
           alt=""
-          className="h-full w-full object-cover object-[68%_18%] opacity-[0.16] saturate-[1.05] lg:opacity-80"
+          className="h-full w-full object-cover object-[55%_12%] opacity-70 saturate-[1.05] lg:object-[68%_18%] lg:opacity-80"
           initial={reduced ? undefined : { scale: 1.06 }}
           animate={reduced ? undefined : { scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
         />
-        {/* máscaras: funde a foto no preto por todos os lados */}
-        <div className="absolute inset-0 bg-gradient-to-r from-track via-track/55 to-transparent lg:via-track/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-track via-transparent to-track/80" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-track to-transparent" />
+        {/* Mobile: scrim vertical — foto brilha no topo, texto vive no escuro */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-track/20 via-track/70 to-track lg:hidden"
+        />
+        {/* Desktop: máscaras que fundem a foto no preto pela esquerda e bordas */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-track via-track/25 to-transparent" />
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-track via-transparent to-track/80" />
+        <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-track to-transparent" />
         {/* leve véu vermelho para casar com a identidade */}
         <div className="absolute inset-0 bg-race/10 mix-blend-multiply" />
       </div>
@@ -87,21 +91,6 @@ export default function Hero() {
             <span className="text-sm text-zinc-400">{HERO.ctaHint}</span>
           </motion.div>
 
-          {/* Mobile: a foto do hero em card visível (no desktop ela vive ao fundo) */}
-          <motion.div
-            {...enter(0.3)}
-            className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 lg:hidden"
-          >
-            <img
-              src="/images/higor-hero.jpg"
-              alt="Higor Vieira apresentando a Máquina de Vendas no palco"
-              className="aspect-[4/3] w-full object-cover object-[68%_12%]"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-track/70 via-transparent to-transparent"
-            />
-          </motion.div>
         </div>
 
         <motion.dl
