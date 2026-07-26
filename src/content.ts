@@ -271,8 +271,7 @@ export const PALCO = {
   titulo: "Higor Vieira nos palcos",
   legenda:
     "Palestras, eventos e treinamentos pelo Brasil — o posicionamento que a Fórmula prega é o mesmo que pratica.",
-  // Substitua pela foto real de palco (ex.: /images/higor-palco.jpg)
-  imagem: "/images/higor-palco.svg",
+  imagem: "/images/higor-palco.jpg",
 };
 
 // ————— Resultados / case + depoimentos —————

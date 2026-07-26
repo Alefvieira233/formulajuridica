@@ -11,7 +11,7 @@ export default function Palco() {
           <img
             src={PALCO.imagem}
             alt={PALCO.titulo}
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_18%]"
             loading="lazy"
           />
           {/* vinhetas para integrar ao tema e segurar a legenda */}
