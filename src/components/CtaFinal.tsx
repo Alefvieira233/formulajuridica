@@ -33,6 +33,21 @@ export default function CtaFinal() {
           </div>
           <h2 className="display-title text-5xl sm:text-6xl">{CTA_FINAL.title}</h2>
           <p className="mt-5 text-lg text-zinc-400">{CTA_FINAL.subtitle}</p>
+
+          {/* Mobile: a foto da assinatura em card visível (no desktop ela vive ao fundo) */}
+          <div className="relative mx-auto mt-8 max-w-md overflow-hidden rounded-2xl border border-white/10 lg:hidden">
+            <img
+              src="/images/higor-contrato.jpg"
+              alt="Higor Vieira assinando contrato em evento"
+              className="aspect-[4/3] w-full object-cover object-[35%_15%]"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-carbon/70 via-transparent to-transparent"
+            />
+          </div>
+
           <a href={FORM_ANCHOR} className="btn-race mt-9">
             {CTA_FINAL.cta}
             <ArrowRight className="h-5 w-5" aria-hidden />

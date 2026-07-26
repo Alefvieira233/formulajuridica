@@ -86,6 +86,22 @@ export default function Hero() {
             </a>
             <span className="text-sm text-zinc-400">{HERO.ctaHint}</span>
           </motion.div>
+
+          {/* Mobile: a foto do hero em card visível (no desktop ela vive ao fundo) */}
+          <motion.div
+            {...enter(0.3)}
+            className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 lg:hidden"
+          >
+            <img
+              src="/images/higor-hero.jpg"
+              alt="Higor Vieira apresentando a Máquina de Vendas no palco"
+              className="aspect-[4/3] w-full object-cover object-[68%_12%]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-track/70 via-transparent to-transparent"
+            />
+          </motion.div>
         </div>
 
         <motion.dl
