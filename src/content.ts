@@ -264,6 +264,17 @@ export const ECOSSISTEMA = {
   ],
 };
 
+// ————— Palco (founder ao vivo, prova do ecossistema) —————
+
+export const PALCO = {
+  tag: "Ao vivo",
+  titulo: "Higor Vieira nos palcos",
+  legenda:
+    "Palestras, eventos e treinamentos pelo Brasil — o posicionamento que a Fórmula prega é o mesmo que pratica.",
+  // Substitua pela foto real de palco (ex.: /images/higor-palco.jpg)
+  imagem: "/images/higor-palco.svg",
+};
+
 // ————— Resultados / case + depoimentos —————
 
 export const RESULTADOS = {
