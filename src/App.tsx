@@ -10,6 +10,7 @@ import Metodo from "./components/Metodo";
 import PitLane from "./components/PitLane";
 import Ecossistema from "./components/Ecossistema";
 import Palco from "./components/Palco";
+import RaceCar from "./components/RaceCar";
 import StickyCta from "./components/StickyCta";
 import Resultados from "./components/Resultados";
 import ParaQuem from "./components/ParaQuem";
@@ -43,6 +44,7 @@ export default function App() {
         <CtaFinal />
       </main>
       <Footer />
+      <RaceCar />
       <StickyCta />
     </>
   );
