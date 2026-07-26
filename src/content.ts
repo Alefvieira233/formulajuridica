@@ -1,221 +1,335 @@
 /**
- * Toda a copy da landing page vive aqui.
- * Ajuste textos, preços e links sem tocar nos componentes.
+ * Toda a copy e configuração da LP vivem aqui.
  *
- * ATENÇÃO: números, depoimentos e preço são PLACEHOLDERS — troque pelos reais
- * antes de publicar.
+ * REGRA DE OURO (definida no briefing): esta página NÃO mostra preço, plano
+ * nem tabela de valores. Ela existe para gerar lead qualificado — a conversa
+ * comercial acontece com o SDR/Closer depois.
+ *
+ * Itens marcados com [AJUSTAR] precisam ser revisados antes de publicar.
  */
 
-// Link do checkout / inscrição (troque pelo link real: Hotmart, Kiwify, etc.)
-export const CHECKOUT_URL = "#oferta";
+// ————— Configuração de captura —————
 
-// WhatsApp para dúvidas (formato: https://wa.me/55DDDNUMERO)
-export const WHATSAPP_URL = "https://wa.me/5500000000000";
+// Webhook que recebe o lead (Zapier/Make/CRM). Vazio = só WhatsApp + Pixel. [AJUSTAR]
+export const LEAD_WEBHOOK_URL = "";
+
+// WhatsApp do comercial (formato internacional, só dígitos). [AJUSTAR]
+export const WHATSAPP_NUMBER = "5500000000000";
+
+// Promessa de velocidade de atendimento exibida na página. [AJUSTAR]
+export const TEMPO_RESPOSTA = "30 minutos";
+
+export const FORM_ANCHOR = "#diagnostico";
+
+// ————— Navegação —————
 
 export const NAV_LINKS = [
-  { label: "O Método", href: "#metodo" },
-  { label: "Benefícios", href: "#beneficios" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Investimento", href: "#oferta" },
+  { label: "Método", href: "#metodo" },
+  { label: "Ecossistema", href: "#ecossistema" },
+  { label: "Resultados", href: "#resultados" },
   { label: "FAQ", href: "#faq" },
 ];
 
+// ————— Hero —————
+
 export const HERO = {
-  badge: "Método para advogados e escritórios",
-  title: "Transforme sua advocacia em um negócio previsível e lucrativo",
+  badge: "Assessoria de alta performance para escritórios de advocacia",
+  // Título fica no componente (destaque em vermelho no meio da frase)
   subtitle:
-    "A Fórmula Jurídica é o passo a passo para atrair clientes qualificados, precificar com segurança e escalar seu escritório — sem depender de indicações e dentro das normas da OAB.",
-  ctaPrimary: "Quero conhecer a Fórmula",
-  ctaSecondary: "Ver como funciona",
+    "A Fórmula Jurídica constrói o posicionamento digital e os canais de aquisição comercial do seu escritório — tráfego, conteúdo e estrutura trabalhando juntos para gerar contratos fechados com previsibilidade.",
+  cta: "Receber diagnóstico gratuito",
+  ctaHint: "Sem compromisso · Resposta em até " + TEMPO_RESPOSTA,
   stats: [
-    { value: "+500", label: "advogados formados" },
-    { value: "4,9/5", label: "avaliação média" },
-    { value: "7 dias", label: "de garantia total" },
+    { value: 500, prefix: "+", suffix: "", label: "contratos fechados em 2025" },
+    { value: 100, prefix: "+", suffix: "", label: "escritórios acelerados no Brasil" },
+    { value: 3, prefix: "", suffix: " frentes", label: "estrutura, conteúdo e tráfego integrados" },
   ],
 };
 
-export const PROBLEMA = {
-  kicker: "Você se identifica?",
-  title: "Você estudou para advogar. Não para caçar clientes.",
-  subtitle:
-    "A faculdade ensina Direito, mas não ensina a construir um escritório sustentável. O resultado é sempre o mesmo:",
-  dores: [
+export const MARQUEE_ITEMS = [
+  "Posicionamento digital",
+  "Tráfego pago",
+  "Direcionamento comercial",
+  "+500 contratos em 2025",
+  "Método validado em +100 escritórios",
+  "Migalhas",
+  "Exame",
+];
+
+// ————— Imprensa —————
+
+export const IMPRENSA = {
+  kicker: "Autoridade reconhecida",
+  title: "Quem lidera o assunto aparece na mídia",
+  veiculos: [
     {
-      title: "Agenda imprevisível",
-      text: "Meses bons e meses vazios, sem saber de onde virá o próximo cliente.",
+      nome: "Migalhas",
+      descricao: "Referência nacional em conteúdo jurídico",
+      materia: "Marketing digital para advogados",
     },
     {
-      title: "Honorários por baixo",
-      text: "Cobrança no 'achismo', desconto por medo de perder o cliente e margem espremida.",
-    },
-    {
-      title: "Refém de indicações",
-      text: "O crescimento depende da sorte e da boa vontade dos outros, não de um sistema seu.",
-    },
-    {
-      title: "Sem tempo para advogar",
-      text: "Você vira secretário, financeiro e marketing do próprio escritório — e o processo técnico sofre.",
+      nome: "Exame",
+      descricao: "Um dos maiores veículos de negócios do país",
+      materia: "Advogado se torna milionário graças ao marketing digital",
     },
   ],
 };
+
+// ————— Formulário de qualificação —————
+
+export const FORM = {
+  kicker: "Diagnóstico gratuito",
+  title: "Descubra o que está travando o crescimento do seu escritório",
+  subtitle:
+    "Preencha em menos de 1 minuto. Nosso time analisa suas respostas e liga em até " +
+    TEMPO_RESPOSTA +
+    " (horário comercial) com um plano inicial para o seu escritório.",
+  steps: ["Você", "Escritório", "Momento"],
+  campos: {
+    areas: [
+      "Previdenciário",
+      "Trabalhista",
+      "Família e Sucessões",
+      "Criminal",
+      "Cível",
+      "Empresarial",
+      "Tributário",
+      "Consumidor",
+      "Outra",
+    ],
+    faturamento: [
+      "Até R$ 20 mil/mês",
+      "R$ 20 a 50 mil/mês",
+      "R$ 50 a 100 mil/mês",
+      "R$ 100 a 300 mil/mês",
+      "Acima de R$ 300 mil/mês",
+    ],
+    equipe: ["Atuo sozinho(a)", "2 a 5 pessoas", "6 a 15 pessoas", "Mais de 15 pessoas"],
+    trava: [
+      "Dependo de indicações para captar",
+      "Tenho demanda, mas não converto em contratos",
+      "Não tenho posicionamento digital",
+      "Quero escalar com previsibilidade",
+    ],
+    investimento: [
+      "Sim, imediatamente",
+      "Sim, nos próximos 3 meses",
+      "Ainda não",
+    ],
+  },
+  perguntas: {
+    trava: "O que mais trava o crescimento do escritório hoje?",
+    investimento:
+      "Se o diagnóstico fizer sentido, você está pronto(a) para investir no crescimento do escritório?",
+  },
+  submit: "Solicitar meu diagnóstico",
+  sucesso: {
+    title: "Recebido! Você está no grid.",
+    text:
+      "Nosso time vai analisar suas respostas e entrar em contato em até " +
+      TEMPO_RESPOSTA +
+      " (horário comercial). Se preferir adiantar, chame no WhatsApp:",
+    ctaWhats: "Falar agora no WhatsApp",
+  },
+  lgpd: "Seus dados estão seguros e serão usados apenas para esse contato. Nada de spam.",
+};
+
+// ————— Diferencial (posicionamento da empresa) —————
+
+export const DIFERENCIAL = {
+  kicker: "Por que a Fórmula Jurídica",
+  title: "Marketing que não termina no like — termina no contrato assinado",
+  text:
+    "A maioria das agências entrega posts e relatórios. A Fórmula Jurídica constrói a máquina inteira: posicionamento digital, geração de demanda todos os dias e direcionamento comercial para transformar lead em contrato fechado. Gestão, marketing e vendas funcionando como um único sistema — documentado, replicável e sem depender de uma pessoa só.",
+  pontos: [
+    {
+      title: "Demanda todos os dias",
+      text: "Campanhas de tráfego que colocam seu escritório na frente de quem já procura a solução.",
+    },
+    {
+      title: "Comercial que converte",
+      text: "Treinamento e direcionamento do atendimento para os canais de aquisição — lead sem conversão é dinheiro no lixo.",
+    },
+    {
+      title: "Previsibilidade",
+      text: "Você começa o mês sabendo quanto vai entrar de demanda — e decide com base em número, não em esperança.",
+    },
+  ],
+};
+
+// ————— Método (3 frentes do deck) —————
 
 export const METODO = {
-  kicker: "O Método",
-  title: "Os 4 pilares da Fórmula Jurídica",
+  kicker: "O Método Fórmula",
+  title: "Três frentes. Uma máquina.",
   subtitle:
-    "Um caminho claro, na ordem certa, para sair do improviso e construir uma máquina de clientes ética e previsível.",
-  pilares: [
+    "Validado em mais de 100 escritórios de advocacia em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para rodar em alta velocidade.",
+  frentes: [
     {
       numero: "01",
-      title: "Posicionamento",
-      text: "Defina seu nicho, sua tese e sua promessa. Pare de ser 'mais um advogado' e vire a referência que o cliente procura.",
+      title: "Estrutura",
+      resumo: "A base digital que sustenta a captação.",
+      itens: ["Feed e vitrine profissional", "Website de autoridade", "Landing pages de conversão"],
     },
     {
       numero: "02",
-      title: "Atração",
-      text: "Marketing jurídico ético e aprovado pelo Provimento 205/2021 da OAB: conteúdo, autoridade e canais que trazem clientes todos os dias.",
+      title: "Conteúdo",
+      resumo: "Autoridade construída com consistência.",
+      itens: ["Planejamento editorial", "Criatividade e roteiros", "Produção audiovisual"],
     },
     {
       numero: "03",
-      title: "Conversão",
-      text: "Scripts de atendimento, proposta e precificação que transformam consultas em contratos assinados — sem dar descontos por insegurança.",
-    },
-    {
-      numero: "04",
-      title: "Escala",
-      text: "Processos, delegação e gestão para o escritório crescer sem depender 100% de você. Advocacia como negócio, de verdade.",
+      title: "Tráfego",
+      resumo: "Demanda real chegando todos os dias.",
+      itens: ["Demanda real (fundo de funil)", "Demanda potencial (topo de funil)", "Otimização por resultado"],
     },
   ],
 };
 
-export const BENEFICIOS = {
-  kicker: "O que você recebe",
-  title: "Tudo o que você precisa para aplicar a Fórmula",
-  itens: [
-    {
-      title: "Aulas passo a passo",
-      text: "Trilha completa e direta ao ponto, do posicionamento à escala, com plano de ação por módulo.",
-    },
-    {
-      title: "Modelos prontos",
-      text: "Templates de proposta de honorários, contratos de prestação de serviços e scripts de atendimento.",
-    },
-    {
-      title: "Encontros ao vivo",
-      text: "Sessões de tira-dúvidas e análise de casos reais para destravar a sua situação específica.",
-    },
-    {
-      title: "Comunidade exclusiva",
-      text: "Rede de advogados aplicando o método, trocando indicações e experiências.",
-    },
-    {
-      title: "Calculadora de honorários",
-      text: "Planilha para precificar com margem e segurança, sem chutar valores.",
-    },
-    {
-      title: "Certificado de conclusão",
-      text: "Certificado ao final da trilha para fortalecer sua autoridade profissional.",
-    },
-  ],
-};
+// ————— Ecossistema (máquina de vendas do deck) —————
 
-export const DEPOIMENTOS = {
-  kicker: "Resultados reais",
-  title: "Quem aplicou, aprovou",
-  lista: [
-    {
-      nome: "Dra. Mariana S.",
-      area: "Direito de Família",
-      texto:
-        "Em 4 meses saí de 2 para 11 contratos por mês. O pilar de precificação sozinho já pagou o investimento no primeiro cliente.",
-    },
-    {
-      nome: "Dr. Rafael A.",
-      area: "Direito Trabalhista",
-      texto:
-        "Eu vivia de indicação e não tinha controle nenhum. Hoje tenho um funil rodando e sei exatamente quantos clientes entram por semana.",
-    },
-    {
-      nome: "Dra. Camila R.",
-      area: "Direito Previdenciário",
-      texto:
-        "O método é organizado e ético. Apliquei o posicionamento, dobrei os honorários médios e os clientes pararam de pedir desconto.",
-    },
-  ],
-};
-
-export const OFERTA = {
-  kicker: "Investimento",
-  title: "Comece a aplicar a Fórmula Jurídica hoje",
+export const ECOSSISTEMA = {
+  kicker: "Ecossistema",
+  title: "Uma máquina de vendas construída em volta do advogado",
   subtitle:
-    "Acesso imediato a todo o método, atualizações e comunidade. Menos que o valor de um único honorário bem cobrado.",
-  precoAncora: "de R$ 2.997",
-  parcelas: "12x de R$ 197",
-  aVista: "ou R$ 1.997 à vista",
-  cta: "Garantir minha vaga",
-  inclui: [
-    "Trilha completa com os 4 pilares",
-    "Modelos de proposta, contrato e scripts",
-    "Encontros ao vivo mensais",
-    "Comunidade exclusiva de advogados",
-    "Calculadora de honorários",
-    "Acesso por 12 meses + atualizações",
+    "Mais do que anúncios: um ecossistema completo de posicionamento que transforma o advogado em referência na sua área.",
+  itens: [
+    "Instagram",
+    "Influencers",
+    "Embaixadores",
+    "Parceiros",
+    "Eventos",
+    "Podcasts",
+    "Treinamentos",
+    "Rosto & marca pessoal",
   ],
-  garantia: {
-    title: "Garantia incondicional de 7 dias",
-    text: "Entre, assista às aulas e aplique. Se não fizer sentido para você, devolvemos 100% do valor. Sem perguntas, sem burocracia.",
+};
+
+// ————— Resultados / case + depoimentos —————
+
+export const RESULTADOS = {
+  kicker: "Resultados reais",
+  title: "Quem entrou no grid, acelerou",
+  caseDestaque: {
+    nome: "Jhônata Correa Advocacia",
+    resultado: "Expandiu a operação do Amapá para o Espírito Santo",
+    texto:
+      "Com posicionamento digital e canais de aquisição estruturados, o escritório ganhou previsibilidade de contratos e abriu operação em um novo estado.",
+    tag: "AP → ES",
+  },
+  depoimentos: [
+    {
+      nome: "Dr. [NOME]", // [AJUSTAR] depoimento real
+      area: "Direito [NICHO]",
+      texto:
+        "Antes, a gente vivia de indicação e não tinha previsibilidade nenhuma. Com a Fórmula, isso virou processo: hoje eu sei, no início do mês, quanto vai entrar de demanda.",
+    },
+    {
+      nome: "Dra. [NOME]", // [AJUSTAR] depoimento real
+      area: "Direito [NICHO]",
+      texto:
+        "O que mais me passa segurança é o comprometimento do time. Tudo que a gente precisa mudar ou melhorar, eles são muito parceiros — tratam o escritório como se fosse deles.",
+    },
+  ],
+};
+
+// ————— Para quem é —————
+
+export const PARA_QUEM = {
+  kicker: "Fit ideal",
+  title: "A Fórmula Jurídica é para o seu escritório?",
+  sim: {
+    title: "É para você, se",
+    itens: [
+      "Você tem um escritório estruturado ou em crescimento acelerado",
+      "Sua entrega jurídica é boa — o gargalo é a captação",
+      "Você quer parar de depender só de indicação",
+      "Você trata (ou quer tratar) a advocacia como negócio",
+    ],
+  },
+  nao: {
+    title: "Não é para você, se",
+    itens: [
+      "Você procura resultado sem nenhum investimento",
+      "Você não pode participar minimamente do posicionamento",
+      "Você quer 'só uns posts' para dizer que tem marketing",
+      "Você não tem estrutura para atender mais demanda",
+    ],
   },
 };
+
+// ————— Founder —————
+
+export const FOUNDER = {
+  kicker: "Quem está no comando",
+  nome: "Higor", // [AJUSTAR] nome completo
+  cargo: "Founder · Fórmula Jurídica | BKS 360", // [AJUSTAR]
+  bio: [
+    "À frente da BKS 360, Higor lidera a operação que já colocou mais de 100 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025.",
+    "É ele quem apresenta o diagnóstico e desenha, junto com o time, o plano de aceleração de cada escritório que entra para o grid da Fórmula Jurídica.",
+  ], // [AJUSTAR] bio real
+  // Coloque a foto real em public/images/ (ex.: higor.jpg) e ajuste o caminho aqui
+  foto: "/images/higor.svg",
+};
+
+// ————— FAQ —————
 
 export const FAQ = {
   kicker: "Dúvidas frequentes",
   title: "Perguntas e respostas",
   itens: [
     {
-      pergunta: "A Fórmula Jurídica funciona para qualquer área do Direito?",
+      pergunta: "Como funciona o diagnóstico gratuito?",
       resposta:
-        "Sim. O método é estrutural — posicionamento, atração, conversão e escala — e se adapta a qualquer nicho: família, trabalhista, previdenciário, empresarial, criminal e outros.",
+        "Você preenche o formulário com as informações do seu escritório. Nosso time analisa o cenário e entra em contato em até " +
+        TEMPO_RESPOSTA +
+        " (horário comercial) para apresentar uma leitura inicial e os próximos passos.",
     },
     {
-      pergunta: "Sou recém-formado(a). Serve para mim?",
+      pergunta: "Quanto custa o serviço?",
       resposta:
-        "Serve, e é o melhor momento: você constrói o escritório do jeito certo desde o início, sem precisar 'desaprender' vícios depois.",
+        "O investimento depende do momento e da estrutura de cada escritório. Por isso ele é apresentado na conversa com nosso especialista, depois do diagnóstico — assim você recebe uma proposta desenhada para a sua operação, não uma tabela genérica.",
     },
     {
-      pergunta: "O marketing ensinado respeita o Código de Ética da OAB?",
+      pergunta: "Funciona para a minha área de atuação?",
       resposta:
-        "Totalmente. Todas as estratégias seguem o Provimento 205/2021, que regulamenta o marketing jurídico. Nada de mercantilização ou captação indevida de clientela.",
+        "O método já foi aplicado em mais de 100 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
     },
     {
-      pergunta: "Por quanto tempo tenho acesso?",
+      pergunta: "O marketing segue as normas da OAB?",
       resposta:
-        "O acesso é de 12 meses, incluindo todas as atualizações do período e os encontros ao vivo.",
+        "Sim. Toda a estratégia é construída dentro do Provimento 205/2021, que regulamenta o marketing jurídico. Posicionamento forte e ético — sem captação indevida de clientela.",
     },
     {
-      pergunta: "Quanto tempo preciso dedicar por semana?",
+      pergunta: "Em quanto tempo aparecem os primeiros resultados?",
       resposta:
-        "Com 2 a 3 horas por semana você consegue avançar na trilha e aplicar o plano de ação de cada módulo.",
+        "Depende do ponto de partida, mas a operação é montada para gerar demanda desde as primeiras semanas — enquanto as frentes de posicionamento e conteúdo constroem o resultado composto de médio prazo.",
     },
     {
-      pergunta: "E se eu não gostar?",
+      pergunta: "Meu escritório é pequeno. Faz sentido?",
       resposta:
-        "Você tem 7 dias de garantia incondicional. Basta pedir o reembolso dentro do prazo e devolvemos 100% do valor.",
+        "O formulário existe exatamente para isso: entender seu momento. Se ainda não for a hora, nosso time é transparente e indica o melhor caminho para chegar lá.",
     },
   ],
 };
 
+// ————— CTA final —————
+
 export const CTA_FINAL = {
-  title: "Sua advocacia pode continuar no improviso. Ou pode ter um método.",
+  title: "Vamos acelerar seu escritório?",
   subtitle:
-    "Entre para a Fórmula Jurídica e construa um escritório que atrai, converte e cresce de forma previsível.",
-  cta: "Quero entrar agora",
+    "Preencha o formulário, receba o diagnóstico gratuito e descubra o que a máquina certa de aquisição faz pela sua banca.",
+  cta: "Entrar no grid agora",
 };
+
+// ————— Footer —————
 
 export const FOOTER = {
   descricao:
-    "O método passo a passo para transformar sua advocacia em um negócio previsível e lucrativo.",
+    "Fórmula Jurídica é o programa de aceleração da BKS 360 para escritórios de advocacia: posicionamento digital, geração de demanda e direcionamento comercial em um único sistema.",
   aviso:
-    "Este site não é vinculado à OAB. As estratégias ensinadas seguem o Provimento 205/2021. Resultados variam conforme dedicação e contexto de cada profissional.",
-  copyright: `© ${new Date().getFullYear()} Fórmula Jurídica. Todos os direitos reservados.`,
-  cnpj: "CNPJ 00.000.000/0001-00",
+    "Este site não é vinculado à OAB nem ao Facebook/Meta. As estratégias seguem o Provimento 205/2021 (marketing jurídico). Resultados citados são casos reais de clientes e variam conforme contexto, nicho e dedicação de cada operação.",
+  copyright: `© ${new Date().getFullYear()} Fórmula Jurídica · BKS 360. Todos os direitos reservados.`,
+  cnpj: "CNPJ 00.000.000/0001-00", // [AJUSTAR]
+  instagram: "https://instagram.com/bksmarketingperformance", // [AJUSTAR]
 };

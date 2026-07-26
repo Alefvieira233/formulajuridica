@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { CHECKOUT_URL, NAV_LINKS } from "@/content";
+import { Menu, X, Zap } from "lucide-react";
+import { FORM_ANCHOR, NAV_LINKS } from "@/content";
 import Logo from "./Logo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-navy-950/90 backdrop-blur">
-      <nav className="container-content flex h-20 items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-track/85 backdrop-blur-md">
+      <nav className="container-content flex h-[4.5rem] items-center justify-between">
         <Logo />
 
         <ul className="hidden items-center gap-8 lg:flex">
@@ -16,7 +16,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-slate-300 transition hover:text-gold-300"
+                className="text-sm font-semibold uppercase tracking-wider text-zinc-400 transition hover:text-white"
               >
                 {link.label}
               </a>
@@ -25,14 +25,15 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <a href={CHECKOUT_URL} className="btn-primary !px-5 !py-2.5 text-sm">
-            Garantir minha vaga
+          <a href={FORM_ANCHOR} className="btn-race !px-5 !py-2.5 !text-base">
+            <Zap className="h-4 w-4" aria-hidden />
+            Diagnóstico gratuito
           </a>
         </div>
 
         <button
           type="button"
-          className="rounded-md p-2 text-slate-200 hover:text-gold-300 lg:hidden"
+          className="rounded-md p-2 text-zinc-200 hover:text-race lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -42,13 +43,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/5 bg-navy-950 lg:hidden">
+        <div className="border-t border-white/5 bg-track lg:hidden">
           <ul className="container-content flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block rounded-md px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-navy-800 hover:text-gold-300"
+                  className="block rounded-md px-3 py-2.5 text-sm font-semibold uppercase tracking-wider text-zinc-300 hover:bg-carbon hover:text-white"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -57,11 +58,11 @@ export default function Navbar() {
             ))}
             <li className="mt-2">
               <a
-                href={CHECKOUT_URL}
-                className="btn-primary w-full text-sm"
+                href={FORM_ANCHOR}
+                className="btn-race w-full !text-base"
                 onClick={() => setOpen(false)}
               >
-                Garantir minha vaga
+                Diagnóstico gratuito
               </a>
             </li>
           </ul>

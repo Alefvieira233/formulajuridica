@@ -1,22 +1,27 @@
 import { ArrowRight } from "lucide-react";
-import { CHECKOUT_URL, CTA_FINAL } from "@/content";
+import { CTA_FINAL, FORM_ANCHOR } from "@/content";
+import Reveal from "./Reveal";
 
 export default function CtaFinal() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-navy-900 py-20 sm:py-28">
+    <section className="relative overflow-hidden border-t border-white/5 bg-carbon py-20 sm:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-48 left-1/2 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-gold-500/10 blur-3xl"
+        className="pointer-events-none absolute -bottom-52 left-1/2 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-race/15 blur-3xl"
       />
+      <div aria-hidden className="checkered pointer-events-none absolute left-0 top-0 h-5 w-full opacity-30" />
+
       <div className="container-content relative text-center">
-        <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-          {CTA_FINAL.title}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">{CTA_FINAL.subtitle}</p>
-        <a href={CHECKOUT_URL} className="btn-primary mt-9">
-          {CTA_FINAL.cta}
-          <ArrowRight className="h-5 w-5" aria-hidden />
-        </a>
+        <Reveal>
+          <h2 className="display-title mx-auto max-w-3xl text-5xl sm:text-6xl">
+            {CTA_FINAL.title}
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-zinc-400">{CTA_FINAL.subtitle}</p>
+          <a href={FORM_ANCHOR} className="btn-race mt-9">
+            {CTA_FINAL.cta}
+            <ArrowRight className="h-5 w-5" aria-hidden />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

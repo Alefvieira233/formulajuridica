@@ -2,17 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fontes self-hosted (public/fonts) — sem dependência do Google Fonts em runtime */
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/anton-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter-latin-var.woff2") format("woff2");
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-navy-950 font-sans text-slate-200 antialiased;
+    @apply bg-track font-sans text-zinc-300 antialiased;
+  }
+
+  ::selection {
+    @apply bg-race text-white;
   }
 
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4.5rem;
   }
 }
 
@@ -21,19 +42,54 @@
     @apply mx-auto w-full max-w-content px-5 sm:px-8;
   }
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold-500 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition hover:bg-gold-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950;
+  .btn-race {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-race px-8 py-4 font-display text-lg uppercase tracking-wide text-white shadow-race transition duration-200 hover:-translate-y-0.5 hover:bg-race-600 hover:shadow-race focus:outline-none focus-visible:ring-2 focus-visible:ring-race focus-visible:ring-offset-2 focus-visible:ring-offset-track;
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-600 px-7 py-3.5 text-base font-semibold text-slate-200 transition hover:border-gold-500 hover:text-gold-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950;
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-zinc-700 px-8 py-4 font-display text-lg uppercase tracking-wide text-zinc-200 transition duration-200 hover:border-race hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-race focus-visible:ring-offset-2 focus-visible:ring-offset-track;
   }
 
-  .section-title {
-    @apply font-display text-3xl font-bold leading-tight text-white sm:text-4xl;
+  .display-title {
+    @apply font-display uppercase leading-[0.95] tracking-wide text-white;
   }
 
-  .section-kicker {
-    @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-gold-400;
+  .kicker {
+    @apply mb-4 inline-flex items-center gap-2 font-display text-sm uppercase tracking-[0.25em] text-race;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-zinc-300;
+  }
+
+  .field-input {
+    @apply w-full rounded-md border border-zinc-700 bg-carbon px-4 py-3 text-base text-white placeholder-zinc-500 transition focus:border-race focus:outline-none focus:ring-1 focus:ring-race;
+  }
+}
+
+@layer utilities {
+  /* Faixas diagonais de velocidade (fundo de seções) */
+  .speed-lines {
+    background-image: repeating-linear-gradient(
+      115deg,
+      transparent 0px,
+      transparent 48px,
+      rgba(225, 6, 0, 0.06) 48px,
+      rgba(225, 6, 0, 0.06) 52px
+    );
+  }
+
+  /* Quadriculado de chegada */
+  .checkered {
+    background-image:
+      linear-gradient(45deg, rgba(255, 255, 255, 0.07) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.07) 75%),
+      linear-gradient(45deg, rgba(255, 255, 255, 0.07) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.07) 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+    color: transparent;
   }
 }

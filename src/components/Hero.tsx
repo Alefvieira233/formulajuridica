@@ -1,51 +1,88 @@
-import { ArrowRight, Sparkles } from "lucide-react";
-import { CHECKOUT_URL, HERO } from "@/content";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Flag } from "lucide-react";
+import { FORM_ANCHOR, HERO } from "@/content";
+import Counter from "./Counter";
 
 export default function Hero() {
+  const reduced = useReducedMotion();
+
+  const enter = (delay: number) =>
+    reduced
+      ? {}
+      : {
+          initial: { opacity: 0, y: 28 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
+        };
+
   return (
-    <section id="inicio" className="relative overflow-hidden pb-20 pt-36 sm:pb-28 sm:pt-44">
-      {/* brilho decorativo */}
+    <section id="inicio" className="speed-lines relative overflow-hidden pb-16 pt-32 sm:pb-24 sm:pt-40">
+      {/* farol vermelho ao fundo */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[32rem] w-[60rem] -translate-x-1/2 rounded-full bg-gold-500/10 blur-3xl"
+        className="pointer-events-none absolute -top-56 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full bg-race/15 blur-3xl"
       />
+      {/* faixa quadriculada no rodapé do hero */}
+      <div aria-hidden className="checkered pointer-events-none absolute bottom-0 left-0 h-6 w-full opacity-40" />
 
-      <div className="container-content relative text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-navy-800/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-300">
-          <Sparkles className="h-3.5 w-3.5" aria-hidden />
-          {HERO.badge}
-        </span>
+      <div className="container-content relative">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.span
+            {...enter(0)}
+            className="inline-flex items-center gap-2 rounded-full border border-race/40 bg-carbon/80 px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-zinc-200"
+          >
+            <Flag className="h-3.5 w-3.5 text-race" aria-hidden />
+            {HERO.badge}
+          </motion.span>
 
-        <h1 className="mx-auto mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
-          Transforme sua advocacia em um negócio{" "}
-          <span className="text-gold-400">previsível e lucrativo</span>
-        </h1>
+          <motion.h1
+            {...enter(0.08)}
+            className="display-title mt-7 text-5xl sm:text-6xl lg:text-[5.2rem]"
+          >
+            Seu escritório na
+            <br />
+            <span className="text-race drop-shadow-[0_0_25px_rgba(225,6,0,0.45)]">
+              pole position
+            </span>{" "}
+            da captação
+          </motion.h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-          {HERO.subtitle}
-        </p>
+          <motion.p
+            {...enter(0.16)}
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400"
+          >
+            {HERO.subtitle}
+          </motion.p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href={CHECKOUT_URL} className="btn-primary w-full sm:w-auto">
-            {HERO.ctaPrimary}
-            <ArrowRight className="h-5 w-5" aria-hidden />
-          </a>
-          <a href="#metodo" className="btn-secondary w-full sm:w-auto">
-            {HERO.ctaSecondary}
-          </a>
+          <motion.div {...enter(0.24)} className="mt-10 flex flex-col items-center gap-3">
+            <a href={FORM_ANCHOR} className="btn-race w-full sm:w-auto">
+              {HERO.cta}
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </a>
+            <span className="text-sm text-zinc-500">{HERO.ctaHint}</span>
+          </motion.div>
         </div>
 
-        <dl className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
+        <motion.dl
+          {...enter(0.34)}
+          className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
+        >
           {HERO.stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col rounded-xl border border-white/5 bg-navy-900/60 px-6 py-5"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-white/5 bg-carbon/80 px-6 py-6 transition hover:border-race/50"
             >
-              <dt className="order-2 text-sm text-slate-400">{stat.label}</dt>
-              <dd className="font-display text-3xl font-bold text-gold-400">{stat.value}</dd>
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-race to-transparent opacity-60"
+              />
+              <dd className="font-display text-4xl text-white">
+                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+              </dd>
+              <dt className="order-2 mt-1.5 text-sm text-zinc-500">{stat.label}</dt>
             </div>
           ))}
-        </dl>
+        </motion.dl>
       </div>
     </section>
   );

@@ -5,22 +5,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: "#060D1A",
-          900: "#0A1628",
-          800: "#10203A",
-          700: "#1A2F52",
-          600: "#24406E",
-        },
-        gold: {
-          300: "#E8D48A",
-          400: "#DCBB5E",
-          500: "#C9A227",
-          600: "#A98620",
+        track: "#060607",
+        carbon: "#0D0D0F",
+        asphalt: "#141417",
+        steel: "#1D1D22",
+        race: {
+          DEFAULT: "#E10600",
+          600: "#C00500",
+          700: "#9B0400",
+          900: "#4A0200",
         },
       },
       fontFamily: {
-        display: ['"Playfair Display"', "Georgia", "serif"],
+        display: ["Anton", "Impact", "sans-serif"],
         sans: [
           "Inter",
           "ui-sans-serif",
@@ -32,7 +29,20 @@ export default {
         ],
       },
       maxWidth: {
-        content: "72rem",
+        content: "74rem",
+      },
+      boxShadow: {
+        race: "0 0 40px -8px rgba(225, 6, 0, 0.55)",
+        "race-sm": "0 0 24px -6px rgba(225, 6, 0, 0.45)",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 28s linear infinite",
       },
     },
   },
