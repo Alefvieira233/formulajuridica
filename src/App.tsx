@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TapeCross from "./components/TapeCross";
 import LeadForm from "./components/LeadForm";
-import Imprensa from "./components/Imprensa";
 import Diferencial from "./components/Diferencial";
 import Metodo from "./components/Metodo";
 import PitLane from "./components/PitLane";
@@ -31,7 +30,6 @@ export default function App() {
         <Hero />
         <TapeCross />
         <LeadForm />
-        <Imprensa />
         <Diferencial />
         <Metodo />
         <PitLane />

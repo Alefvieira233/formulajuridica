@@ -41,8 +41,8 @@ export const HERO = {
   ctaHint: "Sem compromisso · Resposta em até " + TEMPO_RESPOSTA,
   stats: [
     { value: 500, prefix: "+", suffix: "", label: "contratos fechados em 2025" },
-    { value: 100, prefix: "+", suffix: "", label: "escritórios acelerados no Brasil" },
-    { value: 3, prefix: "", suffix: " frentes", label: "estrutura, conteúdo e tráfego integrados" },
+    { value: 200, prefix: "+", suffix: "", label: "escritórios atendidos no Brasil" },
+    { value: 1600, prefix: "+", suffix: "", label: "contratos fechados para um único cliente" },
   ],
 };
 
@@ -50,9 +50,8 @@ export const HERO = {
 export const TAPES = {
   frente: [
     "+500 contratos fechados em 2025",
-    "+100 escritórios acelerados",
-    "Visto no Migalhas",
-    "Visto na Exame",
+    "+200 escritórios atendidos",
+    "+1.600 contratos para um único cliente",
     "Método validado no Brasil inteiro",
   ],
   fundo: [
@@ -62,25 +61,6 @@ export const TAPES = {
     "Posicionamento digital",
     "Direcionamento comercial",
     "Previsibilidade",
-  ],
-};
-
-// ————— Imprensa —————
-
-export const IMPRENSA = {
-  kicker: "Autoridade reconhecida",
-  title: "Quem lidera o assunto aparece na mídia",
-  veiculos: [
-    {
-      nome: "Migalhas",
-      descricao: "Referência nacional em conteúdo jurídico",
-      materia: "Marketing digital para advogados",
-    },
-    {
-      nome: "Exame",
-      descricao: "Um dos maiores veículos de negócios do país",
-      materia: "Advogado se torna milionário graças ao marketing digital",
-    },
   ],
 };
 
@@ -191,7 +171,7 @@ export const METODO = {
   kicker: "O Método Fórmula",
   title: "Três frentes. Uma máquina.",
   subtitle:
-    "Validado em mais de 100 escritórios de advocacia em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para rodar em alta velocidade.",
+    "Validado em mais de 200 escritórios atendidos em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para rodar em alta velocidade.",
   frentes: [
     {
       numero: "01",
@@ -335,7 +315,7 @@ export const FOUNDER = {
   cargo: "CEO & Founder · Fórmula Jurídica | BKS 360",
   frase: "Você é o piloto da sua empresa.",
   bio: [
-    "À frente da BKS 360, Higor Vieira lidera a operação que já colocou mais de 100 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025 — e sobe em palcos pelo país para falar de posicionamento e vendas.",
+    "À frente da BKS 360, Higor Vieira lidera a operação que já colocou mais de 200 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025 — e sobe em palcos pelo país para falar de posicionamento e vendas.",
     "Na Fórmula Jurídica, você pilota. O nosso time é a engenharia e o pit stop: estrutura, estratégia e velocidade para o seu escritório cruzar a linha de chegada na frente.",
   ], // [AJUSTAR] revisar bio com o Higor
   foto: "/images/higor.jpg",
@@ -362,7 +342,7 @@ export const FAQ = {
     {
       pergunta: "Funciona para a minha área de atuação?",
       resposta:
-        "O método já foi aplicado em mais de 100 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
+        "O método já foi aplicado em mais de 200 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
     },
     {
       pergunta: "O marketing segue as normas da OAB?",
