@@ -78,6 +78,9 @@ src/
 
 ## Deploy
 
+**Produção:** https://formulajuridica.vercel.app (Vercel conectado ao branch `main` — todo push entra no ar automaticamente).
+
+
 `npm run build` gera estáticos em `dist/` — Vercel, Netlify, Cloudflare Pages
 ou qualquer host estático. Publique na raiz do domínio e aponte as campanhas
 com os parâmetros de UTM (a LP captura e repassa sozinha).
