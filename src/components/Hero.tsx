@@ -107,7 +107,13 @@ export default function Hero() {
                   className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-race to-transparent opacity-60"
                 />
                 <dd className="font-display text-4xl text-white">
-                  <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  {stat.text ?? (
+                    <Counter
+                      value={stat.value ?? 0}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                    />
+                  )}
                 </dd>
                 <dt className="order-2 mt-1.5 text-sm text-zinc-500">{stat.label}</dt>
               </div>

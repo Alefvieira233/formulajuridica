@@ -55,6 +55,24 @@ export default function Resultados() {
             </Reveal>
           ))}
         </div>
+
+        {/* Prints de depoimentos — prova social crua */}
+        {RESULTADOS.prints.length > 0 && (
+          <div className="mx-auto mt-10 grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {RESULTADOS.prints.map((print, i) => (
+              <Reveal key={print.src} delay={Math.min(i * 0.06, 0.24)}>
+                <figure className="overflow-hidden rounded-xl border border-white/10 bg-carbon transition hover:border-race/50">
+                  <img
+                    src={print.src}
+                    alt={print.alt}
+                    className="w-full object-cover"
+                    loading="lazy"
+                  />
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

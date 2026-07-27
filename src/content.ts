@@ -24,7 +24,7 @@ export const TEMPO_RESPOSTA = "30 minutos";
  * Use um número redondo e defensável (ex.: 40 vira "+R$ 40 mi").
  * Enquanto estiver 0, o dado não aparece na página — nada de número inventado.
  */
-export const HONORARIOS_MILHOES_2025 = 0;
+export const HONORARIOS_MILHOES_2025 = 15;
 
 export const FORM_ANCHOR = "#diagnostico";
 
@@ -39,8 +39,17 @@ export const NAV_LINKS = [
 
 // ————— Hero —————
 
-const STATS_BASE = [
-  { value: 200, prefix: "+", suffix: "", label: "escritórios atendidos no Brasil" },
+/** `text` renderiza como palavra; `value` anima como contador. */
+export interface HeroStat {
+  value?: number;
+  text?: string;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
+const STATS_BASE: HeroStat[] = [
+  { text: "Centenas", label: "de advogados atendidos em todo o Brasil" },
   { value: 1600, prefix: "+", suffix: "", label: "contratos fechados para um único cliente" },
 ];
 
@@ -51,18 +60,17 @@ export const HERO = {
     "A Fórmula Jurídica constrói o posicionamento digital e os canais de aquisição do seu escritório — tráfego, conteúdo e estrutura trabalhando juntos para gerar contratos fechados de forma constante.",
   cta: "Receber diagnóstico gratuito",
   ctaHint: "Sem compromisso · Resposta em até " + TEMPO_RESPOSTA,
-  stats:
-    HONORARIOS_MILHOES_2025 > 0
-      ? [
-          {
-            value: HONORARIOS_MILHOES_2025,
-            prefix: "+R$ ",
-            suffix: " mi",
-            label: "em honorários faturados pelos nossos clientes em 2025",
-          },
-          ...STATS_BASE,
-        ]
-      : STATS_BASE,
+  stats: (HONORARIOS_MILHOES_2025 > 0
+    ? [
+        {
+          value: HONORARIOS_MILHOES_2025,
+          prefix: "+R$ ",
+          suffix: " mi",
+          label: "em honorários faturados pelos clientes em 2025",
+        },
+        ...STATS_BASE,
+      ]
+    : STATS_BASE) as HeroStat[],
 };
 
 // Fitas cruzadas: números na frente, frentes do método atrás
@@ -71,7 +79,7 @@ export const TAPES = {
     ...(HONORARIOS_MILHOES_2025 > 0
       ? [`+R$ ${HONORARIOS_MILHOES_2025} milhões em honorários faturados em 2025`]
       : []),
-    "+200 escritórios atendidos",
+    "Centenas de advogados atendidos",
     "+1.600 contratos para um único cliente",
     "Método validado em todo o Brasil",
   ],
@@ -168,7 +176,7 @@ export const METODO = {
   kicker: "Método",
   title: "Três frentes. Uma máquina.",
   subtitle:
-    "Validado em mais de 200 escritórios atendidos em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para funcionar com previsibilidade.",
+    "O método já impactou milhares de advogados em todo o Brasil, integrando as três frentes que uma operação de aquisição precisa para funcionar com previsibilidade.",
   frentes: [
     {
       title: "Estrutura",
@@ -226,25 +234,31 @@ export const RESULTADOS = {
   title: "Quem entrou para a Fórmula, acelerou os resultados",
   caseDestaque: {
     nome: "Jhônata Correa Advocacia",
-    resultado: "Expandiu a operação do Amapá para o Espírito Santo",
+    resultado: "Expandiu a operação do Espírito Santo para todo o Brasil",
     texto:
-      "Com posicionamento digital e canais de aquisição estruturados, o escritório ganhou previsibilidade de contratos e abriu operação em um novo estado.",
-    tag: "AP → ES",
+      "Com posicionamento digital e canais de aquisição estruturados, o escritório ganhou previsibilidade de contratos e passou a atender clientes em todo o país.",
+    tag: "ES → Brasil",
   },
   depoimentos: [
     {
-      nome: "Dr. [NOME]", // [AJUSTAR] depoimento real
-      area: "Direito [NICHO]",
+      nome: "Cliente Fórmula Jurídica", // [AJUSTAR] nome real quando autorizado
+      area: "Direito Previdenciário",
       texto:
         "Antes, a gente vivia de indicação e não tinha previsibilidade nenhuma. Com a Fórmula, isso virou processo: hoje eu sei, no início do mês, quanto vai entrar de demanda.",
     },
     {
-      nome: "Dra. [NOME]", // [AJUSTAR] depoimento real
-      area: "Direito [NICHO]",
+      nome: "Cliente Fórmula Jurídica", // [AJUSTAR] nome real quando autorizado
+      area: "Direito de Família",
       texto:
         "O que mais me passa segurança é o comprometimento do time. Tudo que a gente precisa mudar ou melhorar, eles são muito parceiros — tratam o escritório como se fosse deles.",
     },
   ],
+  /**
+   * Prints de depoimentos (WhatsApp, Direct, e-mail).
+   * Coloque as imagens em public/depoimentos/ e liste os arquivos aqui.
+   * Enquanto a lista estiver vazia, a galeria não aparece na página.
+   */
+  prints: [] as { src: string; alt: string }[],
 };
 
 // ————— FAQ —————
@@ -268,7 +282,7 @@ export const FAQ = {
     {
       pergunta: "Funciona para a minha área de atuação?",
       resposta:
-        "O método já foi aplicado em mais de 200 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal, tributário e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
+        "O método já foi aplicado em centenas de escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal, tributário e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
     },
     {
       pergunta: "O marketing segue as normas da OAB?",
