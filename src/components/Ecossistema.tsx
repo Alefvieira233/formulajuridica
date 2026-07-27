@@ -1,10 +1,12 @@
-import { Scale } from "lucide-react";
+import { Mic, Scale } from "lucide-react";
 import { ECOSSISTEMA } from "@/content";
 import Reveal from "./Reveal";
 
 export default function Ecossistema() {
+  const { presenca } = ECOSSISTEMA;
+
   return (
-    <section id="ecossistema" className="border-t border-white/5 bg-carbon py-20 sm:py-28">
+    <section id="ecossistema" className="border-t border-white/5 bg-carbon pt-20 sm:pt-28">
       <div className="container-content">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="kicker justify-center">/// {ECOSSISTEMA.kicker}</span>
@@ -28,6 +30,29 @@ export default function Ecossistema() {
           ))}
         </div>
       </div>
+
+      {/* Presença do time — faixa cinematográfica, sem protagonismo pessoal */}
+      <Reveal delay={0.1} className="mt-16">
+        <figure className="relative h-[340px] overflow-hidden sm:h-[420px] lg:h-[480px]">
+          <img
+            src={presenca.imagem}
+            alt={presenca.titulo}
+            className="absolute inset-0 h-full w-full object-cover object-[50%_18%]"
+            loading="lazy"
+          />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-carbon via-transparent to-track" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-track/70 via-transparent to-transparent" />
+
+          <figcaption className="container-content absolute inset-x-0 bottom-0 pb-10">
+            <span className="inline-flex items-center gap-2 rounded-full bg-race px-4 py-1.5 font-display text-sm uppercase tracking-widest text-white shadow-race-sm">
+              <Mic className="h-4 w-4" aria-hidden />
+              {presenca.tag}
+            </span>
+            <p className="display-title mt-4 max-w-xl text-3xl sm:text-4xl">{presenca.titulo}</p>
+            <p className="mt-2 max-w-xl text-zinc-300">{presenca.legenda}</p>
+          </figcaption>
+        </figure>
+      </Reveal>
     </section>
   );
 }

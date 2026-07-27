@@ -88,6 +88,18 @@
   .field-input {
     @apply w-full rounded-md border border-zinc-700 bg-carbon px-4 py-3 text-base text-white placeholder-zinc-500 transition focus:border-race focus:outline-none focus:ring-1 focus:ring-race;
   }
+
+  /* Select com seta própria (a nativa não acompanha o tema escuro) */
+  .field-select {
+    @apply cursor-pointer appearance-none bg-no-repeat pr-11;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E10600' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 0.9rem center;
+    background-size: 1.1rem;
+  }
+
+  .field-select option {
+    @apply bg-carbon text-white;
+  }
 }
 
 @layer utilities {

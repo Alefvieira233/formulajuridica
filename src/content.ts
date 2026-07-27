@@ -1,11 +1,11 @@
 /**
  * Toda a copy e configuração da LP vivem aqui.
  *
- * REGRA DE OURO (definida no briefing): esta página NÃO mostra preço, plano
- * nem tabela de valores. Ela existe para gerar lead qualificado — a conversa
- * comercial acontece com o SDR/Closer depois.
+ * REGRA DE OURO: esta página NÃO mostra preço, plano nem tabela de valores.
+ * Ela existe para gerar lead qualificado — a conversa comercial acontece
+ * com o time depois.
  *
- * Itens marcados com [AJUSTAR] precisam ser revisados antes de publicar.
+ * Itens marcados com [AJUSTAR] / [DEFINIR] precisam ser revisados antes de publicar.
  */
 
 // ————— Configuração de captura —————
@@ -18,6 +18,13 @@ export const WHATSAPP_NUMBER = "5500000000000";
 
 // Promessa de velocidade de atendimento exibida na página. [AJUSTAR]
 export const TEMPO_RESPOSTA = "30 minutos";
+
+/**
+ * [DEFINIR] Honorários faturados pelos clientes em 2025, em milhões de reais.
+ * Use um número redondo e defensável (ex.: 40 vira "+R$ 40 mi").
+ * Enquanto estiver 0, o dado não aparece na página — nada de número inventado.
+ */
+export const HONORARIOS_MILHOES_2025 = 0;
 
 export const FORM_ANCHOR = "#diagnostico";
 
@@ -32,27 +39,41 @@ export const NAV_LINKS = [
 
 // ————— Hero —————
 
+const STATS_BASE = [
+  { value: 200, prefix: "+", suffix: "", label: "escritórios atendidos no Brasil" },
+  { value: 1600, prefix: "+", suffix: "", label: "contratos fechados para um único cliente" },
+];
+
 export const HERO = {
-  badge: "Alta performance para escritórios e advogados",
-  // Título fica no componente (destaque em vermelho no meio da frase)
+  badge: "Marketing de alta performance para escritórios de advocacia",
+  // Título fica no componente (destaque em vermelho na última palavra)
   subtitle:
-    "A Fórmula Jurídica constrói o posicionamento digital e os canais de aquisição comercial do seu escritório — tráfego, conteúdo e estrutura trabalhando juntos para gerar contratos fechados com previsibilidade.",
+    "A Fórmula Jurídica constrói o posicionamento digital e os canais de aquisição do seu escritório — tráfego, conteúdo e estrutura trabalhando juntos para gerar contratos fechados de forma constante.",
   cta: "Receber diagnóstico gratuito",
   ctaHint: "Sem compromisso · Resposta em até " + TEMPO_RESPOSTA,
-  stats: [
-    { value: 500, prefix: "+", suffix: "", label: "contratos fechados em 2025" },
-    { value: 200, prefix: "+", suffix: "", label: "escritórios atendidos no Brasil" },
-    { value: 1600, prefix: "+", suffix: "", label: "contratos fechados para um único cliente" },
-  ],
+  stats:
+    HONORARIOS_MILHOES_2025 > 0
+      ? [
+          {
+            value: HONORARIOS_MILHOES_2025,
+            prefix: "+R$ ",
+            suffix: " mi",
+            label: "em honorários faturados pelos nossos clientes em 2025",
+          },
+          ...STATS_BASE,
+        ]
+      : STATS_BASE,
 };
 
-// Fitas cruzadas (padrão validado na referência): números na frente, método atrás
+// Fitas cruzadas: números na frente, frentes do método atrás
 export const TAPES = {
   frente: [
-    "+500 contratos fechados em 2025",
+    ...(HONORARIOS_MILHOES_2025 > 0
+      ? [`+R$ ${HONORARIOS_MILHOES_2025} milhões em honorários faturados em 2025`]
+      : []),
     "+200 escritórios atendidos",
     "+1.600 contratos para um único cliente",
-    "Método validado no Brasil inteiro",
+    "Método validado em todo o Brasil",
   ],
   fundo: [
     "Estrutura",
@@ -72,9 +93,14 @@ export const FORM = {
   subtitle:
     "Preencha em menos de 1 minuto. Nosso time analisa suas respostas e liga em até " +
     TEMPO_RESPOSTA +
-    " (horário comercial) com um plano inicial para o seu escritório.",
-  steps: ["Você", "Escritório", "Momento"],
+    " (horário comercial) com um direcionamento inicial para o seu escritório.",
   campos: {
+    estrutura: [
+      "Atuo sozinho(a)",
+      "Com sócio(s)",
+      "Com equipe",
+      "Sócio(s) + equipe",
+    ],
     areas: [
       "Previdenciário",
       "Trabalhista",
@@ -93,34 +119,28 @@ export const FORM = {
       "R$ 100 a 300 mil/mês",
       "Acima de R$ 300 mil/mês",
     ],
-    equipe: ["Atuo sozinho(a)", "2 a 5 pessoas", "6 a 15 pessoas", "Mais de 15 pessoas"],
-    trava: [
-      "Dependo de indicações para captar",
-      "Tenho demanda, mas não converto em contratos",
-      "Não tenho posicionamento digital",
-      "Quero escalar com previsibilidade",
-    ],
-    investimento: [
-      "Sim, imediatamente",
-      "Sim, nos próximos 3 meses",
-      "Ainda não",
-    ],
+    investimento: ["Sim", "Não neste momento"],
   },
-  perguntas: {
-    trava: "O que mais trava o crescimento do escritório hoje?",
-    investimento:
-      "Se o diagnóstico fizer sentido, você está pronto(a) para investir no crescimento do escritório?",
+  labels: {
+    nome: "Nome completo",
+    email: "E-mail",
+    whatsapp: "Telefone / WhatsApp",
+    estrutura: "Seu escritório hoje é formado por",
+    area: "Sua área de atuação",
+    faturamento: "Faixa de faturamento mensal do escritório",
+    investimento: "Você consegue investir em estruturar a captação do seu escritório?",
   },
-  submit: "Solicitar meu diagnóstico",
+  placeholderSelect: "Selecione",
+  submit: "Receber diagnóstico gratuito",
   aviso: {
     kicker: "Aviso",
-    title: "Não saia agora. Faltam poucos segundos para seu escritório mudar.",
+    title: "Não saia agora. Faltam poucos segundos para o seu escritório mudar.",
   },
   passos: [
     {
       numero: "1",
       title: "Complete o formulário",
-      text: "Leva menos de 1 minuto. Garantimos a segurança total dos seus dados — serão usados apenas para esse contato.",
+      text: "Leva menos de 1 minuto. Garantimos a segurança total dos seus dados — usados apenas para esse contato.",
     },
     {
       numero: "2",
@@ -128,104 +148,51 @@ export const FORM = {
       text:
         "Em até " +
         TEMPO_RESPOSTA +
-        " (horário comercial), um dos nossos especialistas liga para agendar a reunião mais importante do seu escritório.",
+        " (horário comercial), um dos nossos especialistas liga para agendar a conversa mais importante do seu escritório.",
     },
   ],
   sucesso: {
-    title: "Recebido! Você está no grid.",
+    title: "Recebido!",
     text:
       "Nosso time vai analisar suas respostas e entrar em contato em até " +
       TEMPO_RESPOSTA +
-      " (horário comercial). Se preferir adiantar, chame no WhatsApp:",
+      " (horário comercial). Se preferir adiantar:",
     ctaWhats: "Falar agora no WhatsApp",
   },
   lgpd: "Ao enviar, você concorda em receber contato do nosso time por telefone, e-mail ou WhatsApp. Seus dados não serão compartilhados com terceiros.",
 };
 
-// ————— Diferencial (posicionamento da empresa) —————
-
-export const DIFERENCIAL = {
-  kicker: "Por que a Fórmula Jurídica",
-  title: "Marketing que não termina no like — termina no contrato assinado",
-  text:
-    "A maioria das agências entrega posts e relatórios. A Fórmula Jurídica constrói a máquina inteira: posicionamento digital, geração de demanda todos os dias e direcionamento comercial para transformar lead em contrato fechado. Gestão, marketing e vendas funcionando como um único sistema — documentado, replicável e sem depender de uma pessoa só.",
-  pontos: [
-    {
-      title: "Demanda todos os dias",
-      text: "Campanhas de tráfego que colocam seu escritório na frente de quem já procura a solução.",
-    },
-    {
-      title: "Comercial que converte",
-      text: "Treinamento e direcionamento do atendimento para os canais de aquisição — lead sem conversão é dinheiro no lixo.",
-    },
-    {
-      title: "Previsibilidade",
-      text: "Você começa o mês sabendo quanto vai entrar de demanda — e decide com base em número, não em esperança.",
-    },
-  ],
-};
-
-// ————— Método (3 frentes do deck) —————
+// ————— Método (3 frentes) —————
 
 export const METODO = {
-  kicker: "O Método Fórmula",
+  kicker: "Método",
   title: "Três frentes. Uma máquina.",
   subtitle:
-    "Validado em mais de 200 escritórios atendidos em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para rodar em alta velocidade.",
+    "Validado em mais de 200 escritórios atendidos em todo o Brasil, o método integra as três frentes que uma operação de aquisição precisa para funcionar com previsibilidade.",
   frentes: [
     {
-      numero: "01",
       title: "Estrutura",
       resumo: "A base digital que sustenta a captação.",
       itens: ["Feed e vitrine profissional", "Website de autoridade", "Landing pages de conversão"],
     },
     {
-      numero: "02",
       title: "Conteúdo",
       resumo: "Autoridade construída com consistência.",
       itens: ["Planejamento editorial", "Criatividade e roteiros", "Produção audiovisual"],
     },
     {
-      numero: "03",
       title: "Tráfego",
-      resumo: "Demanda real chegando todos os dias.",
-      itens: ["Demanda real (fundo de funil)", "Demanda potencial (topo de funil)", "Otimização por resultado"],
+      resumo: "Demanda chegando todos os dias.",
+      itens: [
+        "Demanda real (fundo de funil)",
+        "Demanda potencial (topo de funil)",
+        "Otimização por resultado",
+      ],
     },
   ],
 };
 
-// ————— Pit lane (a máquina em movimento) —————
-
-export const PITLANE = {
-  kicker: "A máquina em movimento",
-  title: "Do clique no anúncio ao contrato assinado",
-  subtitle:
-    "É assim que a demanda percorre a máquina que montamos para o seu escritório — sem depender de indicação e sem lead esquecido no WhatsApp.",
-  etapas: [
-    {
-      title: "Anúncio",
-      text: "Criativos e campanhas colocam seu escritório na frente do cliente certo, todos os dias.",
-    },
-    {
-      title: "Lead qualificado",
-      text: "A página filtra e entrega ao comercial os dados que importam: área, porte e momento.",
-    },
-    {
-      title: "SDR em ação",
-      text: "Ligação em minutos, com inteligência comercial desde o primeiro contato.",
-    },
-    {
-      title: "Fechamento",
-      text: "O closer conduz a proposta — e o contrato é assinado.",
-    },
-    {
-      title: "Operação",
-      text: "Onboarding, CRM e indicadores. Tudo documentado, tudo replicável.",
-    },
-  ],
-};
-
-// ————— Ecossistema (máquina de vendas do deck) —————
+// ————— Ecossistema —————
 
 export const ECOSSISTEMA = {
   kicker: "Ecossistema",
@@ -242,23 +209,21 @@ export const ECOSSISTEMA = {
     "Treinamentos",
     "Rosto & marca pessoal",
   ],
+  // Presença institucional do time (sem protagonismo pessoal)
+  presenca: {
+    tag: "Presença nacional",
+    titulo: "O time Fórmula Jurídica nos palcos do Brasil",
+    legenda:
+      "Palestras, eventos e treinamentos pelo país — o posicionamento que a Fórmula constrói para o cliente é o mesmo que ela pratica.",
+    imagem: "/images/higor-palco.jpg",
+  },
 };
 
-// ————— Palco (founder ao vivo, prova do ecossistema) —————
-
-export const PALCO = {
-  tag: "Ao vivo",
-  titulo: "Higor Vieira nos palcos",
-  legenda:
-    "Palestras, eventos e treinamentos pelo Brasil — o posicionamento que a Fórmula prega é o mesmo que pratica.",
-  imagem: "/images/higor-palco.jpg",
-};
-
-// ————— Resultados / case + depoimentos —————
+// ————— Resultados —————
 
 export const RESULTADOS = {
   kicker: "Resultados reais",
-  title: "Quem entrou no grid, acelerou",
+  title: "Quem entrou para a Fórmula, acelerou os resultados",
   caseDestaque: {
     nome: "Jhônata Correa Advocacia",
     resultado: "Expandiu a operação do Amapá para o Espírito Santo",
@@ -282,45 +247,6 @@ export const RESULTADOS = {
   ],
 };
 
-// ————— Para quem é —————
-
-export const PARA_QUEM = {
-  kicker: "Fit ideal",
-  title: "A Fórmula Jurídica é para o seu escritório?",
-  sim: {
-    title: "É para você, se",
-    itens: [
-      "Você tem um escritório estruturado — ou a ambição de construir uma banca referência",
-      "Sua entrega jurídica é boa — o gargalo é a captação",
-      "Você quer parar de depender só de indicação",
-      "Você trata (ou quer tratar) a advocacia como negócio",
-    ],
-  },
-  nao: {
-    title: "Não é para você, se",
-    itens: [
-      "Você procura resultado sem nenhum investimento",
-      "Você não pode participar minimamente do posicionamento",
-      "Você quer 'só uns posts' para dizer que tem marketing",
-      "Você não tem estrutura para atender mais demanda",
-    ],
-  },
-};
-
-// ————— Founder —————
-
-export const FOUNDER = {
-  kicker: "Quem está no comando",
-  nome: "Higor Vieira",
-  cargo: "CEO & Founder · Fórmula Jurídica | BKS 360",
-  frase: "Você é o piloto da sua empresa.",
-  bio: [
-    "À frente da BKS 360, Higor Vieira lidera a operação que já colocou mais de 200 escritórios de advocacia em outro patamar de captação — somando mais de 500 contratos fechados em 2025 — e sobe em palcos pelo país para falar de posicionamento e vendas.",
-    "Na Fórmula Jurídica, você pilota. O nosso time é a engenharia e o pit stop: estrutura, estratégia e velocidade para o seu escritório cruzar a linha de chegada na frente.",
-  ], // [AJUSTAR] revisar bio com o Higor
-  foto: "/images/higor.jpg",
-};
-
 // ————— FAQ —————
 
 export const FAQ = {
@@ -330,19 +256,19 @@ export const FAQ = {
     {
       pergunta: "Como funciona o diagnóstico gratuito?",
       resposta:
-        "Você preenche o formulário com as informações do seu escritório. Nosso time analisa o cenário e entra em contato em até " +
+        "Você preenche o formulário com as informações do seu escritório. Nosso time analisa o cenário e liga em até " +
         TEMPO_RESPOSTA +
-        " (horário comercial) para apresentar uma leitura inicial e os próximos passos.",
+        " (horário comercial) para apresentar uma leitura inicial e os próximos passos. Sem compromisso.",
     },
     {
       pergunta: "Quanto custa o serviço?",
       resposta:
-        "O investimento depende do momento e da estrutura de cada escritório. Por isso ele é apresentado na conversa com nosso especialista, depois do diagnóstico — assim você recebe uma proposta desenhada para a sua operação, não uma tabela genérica.",
+        "O investimento é definido de acordo com o momento e as necessidades específicas do seu escritório. Isso é detalhado na conversa com o nosso time durante o diagnóstico.",
     },
     {
       pergunta: "Funciona para a minha área de atuação?",
       resposta:
-        "O método já foi aplicado em mais de 200 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
+        "O método já foi aplicado em mais de 200 escritórios de diferentes nichos — previdenciário, trabalhista, família, empresarial, criminal, tributário e outros. As frentes de estrutura, conteúdo e tráfego se adaptam à realidade de cada área.",
     },
     {
       pergunta: "O marketing segue as normas da OAB?",
@@ -352,12 +278,12 @@ export const FAQ = {
     {
       pergunta: "Em quanto tempo aparecem os primeiros resultados?",
       resposta:
-        "Depende do ponto de partida, mas a operação é montada para gerar demanda desde as primeiras semanas — enquanto as frentes de posicionamento e conteúdo constroem o resultado composto de médio prazo.",
+        "Depende do ponto de partida do escritório. A operação é montada para gerar demanda desde as primeiras semanas, enquanto as frentes de posicionamento e conteúdo constroem o resultado composto ao longo dos meses.",
     },
     {
       pergunta: "Meu escritório é pequeno. Faz sentido?",
       resposta:
-        "O formulário existe exatamente para isso: entender seu momento. Se ainda não for a hora, nosso time é transparente e indica o melhor caminho para chegar lá.",
+        "Faz. Atendemos desde advogados que estão estruturando a operação até bancas consolidadas. O diagnóstico existe justamente para entender o seu momento e indicar o caminho certo para ele.",
     },
   ],
 };
@@ -365,20 +291,21 @@ export const FAQ = {
 // ————— CTA final —————
 
 export const CTA_FINAL = {
-  title: "Vamos acelerar seu escritório?",
+  title: "Vamos acelerar o crescimento do seu escritório?",
   subtitle:
-    "Preencha o formulário, receba o diagnóstico gratuito e descubra o que a máquina certa de aquisição faz pela sua banca.",
-  cta: "Entrar no grid agora",
+    "Preencha o formulário, receba o diagnóstico gratuito e descubra o que uma máquina de aquisição estruturada faz pela sua banca.",
+  cta: "Receber diagnóstico gratuito",
 };
 
 // ————— Footer —————
 
 export const FOOTER = {
   descricao:
-    "Fórmula Jurídica é o programa de aceleração da BKS 360 para escritórios de advocacia: posicionamento digital, geração de demanda e direcionamento comercial em um único sistema.",
+    "Fórmula Jurídica — programa de aceleração para escritórios de advocacia: posicionamento digital, geração de demanda e direcionamento comercial em um único sistema.",
   aviso:
     "Este site não é vinculado à OAB nem ao Facebook/Meta. As estratégias seguem o Provimento 205/2021 (marketing jurídico). Resultados citados são casos reais de clientes e variam conforme contexto, nicho e dedicação de cada operação.",
-  copyright: `© ${new Date().getFullYear()} Fórmula Jurídica · BKS 360. Todos os direitos reservados.`,
+  copyright: `© ${new Date().getFullYear()} Fórmula Jurídica. Todos os direitos reservados.`,
   cnpj: "CNPJ 00.000.000/0001-00", // [AJUSTAR]
+  credito: "Liderado por Higor Vieira",
   instagram: "https://instagram.com/bksmarketingperformance", // [AJUSTAR]
 };

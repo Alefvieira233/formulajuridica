@@ -63,14 +63,14 @@ export default function Hero() {
 
           <motion.h1
             {...enter(0.08)}
-            className="display-title mt-7 text-5xl sm:text-6xl lg:text-[4.6rem]"
+            className="display-title mt-7 text-[2.7rem] leading-[1.02] sm:text-5xl lg:text-[3.9rem]"
           >
-            Seu escritório na{" "}
+            Mais clientes para o seu escritório,{" "}
             <br className="hidden lg:block" />
+            todos os meses, com{" "}
             <span className="text-race drop-shadow-[0_0_25px_rgba(225,6,0,0.45)]">
-              pole position
-            </span>{" "}
-            da captação
+              previsibilidade
+            </span>
           </motion.h1>
 
           <motion.p
@@ -95,7 +95,9 @@ export default function Hero() {
 
         <motion.dl
           {...enter(0.34)}
-          className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3 lg:mx-0"
+          className={`mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 lg:mx-0 ${
+            HERO.stats.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+          }`}
         >
           {HERO.stats.map((stat) => (
             <div key={stat.label} className="plate bg-white/10 p-px transition hover:bg-race/60">

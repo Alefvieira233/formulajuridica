@@ -31,7 +31,7 @@ export default function CtaFinal() {
           <div className="lg:[&>div]:justify-start">
             <StartLights />
           </div>
-          <h2 className="display-title text-5xl sm:text-6xl">{CTA_FINAL.title}</h2>
+          <h2 className="display-title text-4xl sm:text-5xl lg:text-[3.4rem]">{CTA_FINAL.title}</h2>
           <p className="mt-5 text-lg text-zinc-400">{CTA_FINAL.subtitle}</p>
 
           {/* Mobile: a foto da assinatura em card visível (no desktop ela vive ao fundo) */}

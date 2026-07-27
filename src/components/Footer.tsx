@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="mt-10 border-t border-white/5 pt-6">
           <p className="text-xs leading-relaxed text-zinc-600">{FOOTER.aviso}</p>
           <p className="mt-3 text-xs text-zinc-600">
-            {FOOTER.copyright} · {FOOTER.cnpj}
+            {FOOTER.copyright} · {FOOTER.cnpj} · {FOOTER.credito}
           </p>
         </div>
       </div>

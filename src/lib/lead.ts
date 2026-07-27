@@ -9,12 +9,11 @@ declare global {
 
 export interface LeadData {
   nome: string;
-  whatsapp: string;
   email: string;
+  whatsapp: string;
+  estrutura: string;
   area: string;
   faturamento: string;
-  equipe: string;
-  trava: string;
   investimento: string;
 }
 
@@ -56,14 +55,14 @@ export function whatsappUrl(data?: Partial<LeadData>): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;
   if (!data?.nome) {
     return `${base}?text=${encodeURIComponent(
-      "Olá! Preenchi o formulário da Fórmula Jurídica e quero acelerar meu escritório."
+      "Olá! Preenchi o formulário da Fórmula Jurídica e quero falar com um especialista."
     )}`;
   }
   const texto = [
     `Olá! Sou ${data.nome} e acabei de preencher o diagnóstico da Fórmula Jurídica.`,
     data.area ? `Área: ${data.area}` : null,
     data.faturamento ? `Faturamento: ${data.faturamento}` : null,
-    data.equipe ? `Equipe: ${data.equipe}` : null,
+    data.estrutura ? `Escritório: ${data.estrutura}` : null,
   ]
     .filter(Boolean)
     .join("\n");

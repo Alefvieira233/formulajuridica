@@ -42,7 +42,7 @@ export default function Metodo() {
                   {frente.title.charAt(0)}
                 </span>
                 <span className="font-display text-sm uppercase tracking-[0.25em] text-race">
-                  /// Frente
+                  /// Frente {i + 1}
                 </span>
                 <h3 className="display-title mt-3 text-4xl">{frente.title}</h3>
                 <p className="mt-2 text-zinc-400">{frente.resumo}</p>
